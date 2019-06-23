@@ -1,0 +1,23 @@
+function [m] = neighbours_checker(y1)
+%
+m=zeros(12044,1);
+
+l=length(y1);
+for i=1:l
+    centre1=y1(i,2);
+    centre2=y1(i,3);
+    roadid=y1(i,5);
+    r_1=neighbours_finder(centre1,y1);
+    r_2=neighbours_finder(centre2,y1);
+    total_neighbours=r_1+r_2;
+    m(roadid,1)=total_neighbours;
+end
+end
+    function [r]=neighbours_finder(centre,y)
+    r_1=find(centre==y(:,2));
+    r_2=find(centre==y(:,3));
+    r_3=unique(y(r_1,3));
+    r_4=unique(y(r_2,2));
+    c=union(r_3,r_4);
+    r=length(c)-1;   
+    end

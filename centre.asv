@@ -1,0 +1,10 @@
+%THIS SCRIPT ONLY CREATES A RECORD OF THE COORDINATES 
+
+
+centre1=[];
+for i=-122.449815:0.000370:-122.4
+    for j=37.730063:0.000126:37.8
+        z=horzcat(i,j);
+        centre1=vertcat(centre1,z);
+    end
+end
